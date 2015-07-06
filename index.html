@@ -22,7 +22,6 @@
           <div class="col-sm-6">
             <!-- FORM ============ -->
             <form name="userForm" ng-submit="submitForm()" novalidate>
-
               <!-- FIRST NAME -->
               <div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && !userForm.firstName.$pristine }">
                 <label>
@@ -32,7 +31,6 @@
                 <p ng-show="userForm.firstName.$invalid && !userForm.firstName.$pristine" class="help-block">
                   You first name is required.
                 </p>
-
               </div>
               <!-- LAST NAME -->
               <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && !userForm.lastName.$pristine }">
@@ -44,7 +42,6 @@
                   You last name is required.
                 </p>
               </div>
-
               <!-- EMAIL -->
               <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
                 <label>
@@ -53,15 +50,10 @@
                 <input type="email" name="email" class="form-control" ng-model="user.email">
                 <div ng-messages="userForm.email.$error">
                   <div ng-message="email">
-                    You did not enter your email address correctly...
+                    You did not enter your email address correctly.
                   </div>
                 </div>
               </div>
-
-
-
-
-
               <!-- NEWSLETTER -->
               <label>
                 Newsletter
@@ -78,7 +70,6 @@
               <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">
                 Submit
               </button>
-
             </form>
           </div>
           <div class="col-sm-6">
