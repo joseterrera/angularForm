@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script data-require="angular.js@*" data-semver="1.4.0-beta.4" src="https://code.angularjs.org/1.4.0-beta.4/angular.js">
+    </script>
+    <script data-require="angular-messages@1.4.0-beta.4" data-semver="1.4.0-beta.4" src="https://code.angularjs.org/1.4.0-beta.4/angular-messages.js">
+    </script>
+    <script src="script.js">
+    </script>
+  </head>
+  <body>
+    <div ng-controller="myCtrl">
+      <div class="container">
+        <h1>
+          Angular Form Challenge
+        </h1>
+        <h2>
+          User Profile
+        </h2>
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- FORM ============ -->
+            <form name="userForm" ng-submit="submitForm()" novalidate>
+
+              <!-- FIRST NAME -->
+              <div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && !userForm.firstName.$pristine }">
+                <label>
+                  First Name
+                </label>
+                <input type="text" name="firstName" class="form-control" ng-model="user.firstName" required>
+                <p ng-show="userForm.firstName.$invalid && !userForm.firstName.$pristine" class="help-block">
+                  You first name is required.
+                </p>
+
+              </div>
+              <!-- LAST NAME -->
+              <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && !userForm.lastName.$pristine }">
+                <label>
+                  Last Name
+                </label>
+                <input type="text" name="lastName" class="form-control" ng-model="user.lastName"  required>
+                <p ng-show="userForm.lastName.$invalid && !userForm.name.$pristine" class="help-block">
+                  You last name is required.
+                </p>
+              </div>
+
+              <!-- EMAIL -->
+              <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                <label>
+                  Email
+                </label>
+                <input type="email" name="email" class="form-control" ng-model="user.email">
+                <div ng-messages="userForm.email.$error">
+                  <div ng-message="email">
+                    You did not enter your email address correctly...
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+              <!-- NEWSLETTER -->
+              <label>
+                Newsletter
+              </label>
+              <input type="radio" ng-model="user.newsletter" ng-show="true"value="true" />
+              yes
+              <input type="radio"  ng-model="user.newsletter" value="false" />
+              no
+              <br />
+              <!-- BUTTONS -->
+              <button type="reset" class="btn btn-primary" ng-click="reset()" value="Reset">
+                Reset
+              </button>
+              <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">
+                Submit
+              </button>
+
+            </form>
+          </div>
+          <div class="col-sm-6">
+            <h3>
+              {{user.firstName}}
+            </h3>
+            <h3>
+              {{user.lastName}}
+            </h3>
+            <h3>
+              {{user.email}}
+            </h3>
+            <h3 ng-show="false">
+              {{user.newsletter}}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
